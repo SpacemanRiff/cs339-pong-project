@@ -51,20 +51,11 @@ redScore = 0
             <kind>1</kind>
             <string>/* blue paddle code */
 
-if(keyboard_check_pressed(ord('W')) &amp;&amp; bluePaddle.y &gt; 72){
+if(keyboard_check_pressed(ord('W'))){
     bluePaddle.moveUp = true
 }
-if(keyboard_check_pressed(ord('S')) &amp;&amp; bluePaddle.y &lt;  room_height - 72){
+if(keyboard_check_pressed(ord('S'))){
     bluePaddle.moveDown = true
-}
-
-if(bluePaddle.y &lt; 72 + bluePaddle.moveSpeed){
-    bluePaddle.y = 72
-    bluePaddle.moveUp = false
-}
-if(bluePaddle.y &gt; room_height - 72 - bluePaddle.moveSpeed){
-    bluePaddle.y = room_height - 72
-    bluePaddle.moveDown = false
 }
 
 if(keyboard_check_released(ord('W'))){
@@ -94,18 +85,10 @@ if(keyboard_check_released(ord('S'))){
           <argument>
             <kind>1</kind>
             <string>/* red paddle code */
-
-if(redPaddle.y &lt;=  72 + redPaddle.moveSpeed){
-    redPaddle.moveUp = false
-}
-if(redPaddle.y &gt;= room_height - 72 - redPaddle.moveSpeed){
-    redPaddle.moveDown = false
-}
-
-if(keyboard_check_pressed(vk_up) &amp;&amp; redPaddle.y &gt; 72 + redPaddle.moveSpeed){
+if(keyboard_check_pressed(vk_up)){
     redPaddle.moveUp = true
 }
-if(keyboard_check_pressed(vk_down) &amp;&amp; redPaddle.y &lt;  room_height - 72 - redPaddle.moveSpeed){
+if(keyboard_check_pressed(vk_down)){
     redPaddle.moveDown = true
 }
 

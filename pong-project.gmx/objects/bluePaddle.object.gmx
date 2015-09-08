@@ -51,7 +51,16 @@ moveSpeed = 10
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(moveUp){
+            <string>if(y - moveSpeed &lt; 72 &amp;&amp; moveUp){
+    y = 72
+    moveUp = false
+}
+if(y + moveSpeed &gt; room_height - 72 &amp;&amp; moveDown){
+    y = room_height - 72
+    moveDown = false
+}
+
+if(moveUp){
     vspeed = -moveSpeed
 }
 if(moveDown){
