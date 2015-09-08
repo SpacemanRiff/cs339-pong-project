@@ -28,7 +28,7 @@
             <string>moveUp = false
 moveDown = false
 
-moveSpeed = 3
+moveSpeed = 4
 </string>
           </argument>
         </arguments>

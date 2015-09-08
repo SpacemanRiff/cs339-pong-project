@@ -135,20 +135,22 @@ if(keyboard_check_released(vk_down)){
             <kind>1</kind>
             <string>/* ball code */
 
-if(ball.x &lt; 32){
-    ball.x = 512
-    ball.y = 256
-    ball.hMoveSpeed = ball.defaultMoveSpeed
-    ball.vMoveSpeed = ball.defaultMoveSpeed
-    redScore ++;
-}
-
 if(ball.x &gt; 1024 - 32){
-    ball.x = 512
-    ball.y = 256
     ball.hMoveSpeed = -ball.defaultMoveSpeed
     ball.vMoveSpeed = ball.defaultMoveSpeed
     blueScore ++;
+    audio_play_sound(blueScoreAudio,10,false)
+    ball.x = 512
+    ball.y = 256
+}
+
+if(ball.x &lt; 32){
+    ball.hMoveSpeed = ball.defaultMoveSpeed
+    ball.vMoveSpeed = ball.defaultMoveSpeed
+    redScore ++;
+    audio_play_sound(redScoreAudio,10,false)
+    ball.x = 512
+    ball.y = 256
 }
 </string>
           </argument>

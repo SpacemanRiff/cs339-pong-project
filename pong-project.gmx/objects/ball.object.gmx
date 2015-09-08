@@ -76,7 +76,8 @@ hspeed = hMoveSpeed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vMoveSpeed = -vMoveSpeed
+            <string>audio_play_sound(wallHitAudio,10,false)
+vMoveSpeed = -vMoveSpeed
 </string>
           </argument>
         </arguments>
@@ -103,6 +104,7 @@ hspeed = hMoveSpeed
 vMoveSpeed += moveSpeedMod
 hMoveSpeed = -hMoveSpeed
 
+audio_play_sound(redHitAudio,10,false)
 sprite_index = redBallSprite
 </string>
           </argument>
@@ -130,6 +132,7 @@ sprite_index = redBallSprite
 vMoveSpeed -= moveSpeedMod
 hMoveSpeed = -hMoveSpeed
 
+audio_play_sound(blueHitAudio,10,false)
 sprite_index = blueBallSprite
 </string>
           </argument>
