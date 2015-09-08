@@ -52,11 +52,24 @@ moveSpeed = 4
           <argument>
             <kind>1</kind>
             <string>/*begin AI code*/
-if(ball.y &lt; y){
-    vspeed = -moveSpeed
+if(y - moveSpeed &gt; 72){
+    if(ball.y &lt; y){
+        vspeed = -moveSpeed
+    }
+}else{
+    if(ball.y &lt; y){
+        y = 72
+    } 
 }
-if(ball.y &gt; y){
-    vspeed = moveSpeed
+
+if(y + moveSpeed &lt; room_height - 72){
+    if(ball.y &gt; y){
+        vspeed = moveSpeed
+    }
+}else{
+    if(ball.y &gt; y){
+        y = room_height - 72
+    }
 }
 /*end AI code*/
 
