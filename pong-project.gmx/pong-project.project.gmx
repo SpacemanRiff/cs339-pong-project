@@ -10,16 +10,29 @@
     <sound>sound\wallHitAudio</sound>
     <sound>sound\blueScoreAudio</sound>
     <sound>sound\redScoreAudio</sound>
+    <sound>sound\bluePowerUpAudio</sound>
+    <sound>sound\redPowerUpAudio</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\bluePaddleSprite</sprite>
-    <sprite>sprites\redPaddleSprite</sprite>
-    <sprite>sprites\neutralBallSprite</sprite>
-    <sprite>sprites\blueBallSprite</sprite>
-    <sprite>sprites\redBallSprite</sprite>
-    <sprite>sprites\blueGoalSprite</sprite>
-    <sprite>sprites\redGoalSprite</sprite>
     <sprite>sprites\wallSprite</sprite>
+    <sprites name="Paddles">
+      <sprite>sprites\bluePaddleSprite</sprite>
+      <sprite>sprites\redPaddleSprite</sprite>
+    </sprites>
+    <sprites name="Balls">
+      <sprite>sprites\neutralBallSprite</sprite>
+      <sprite>sprites\blueBallSprite</sprite>
+      <sprite>sprites\redBallSprite</sprite>
+    </sprites>
+    <sprites name="Goals">
+      <sprite>sprites\blueGoalSprite</sprite>
+      <sprite>sprites\redGoalSprite</sprite>
+    </sprites>
+    <sprites name="Power Ups">
+      <sprite>sprites\neutralPowerUpSprite</sprite>
+      <sprite>sprites\bluePowerUpSprite</sprite>
+      <sprite>sprites\redPowerUpSprite</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -32,6 +45,7 @@
     <object>objects\bluePaddle</object>
     <object>objects\redPaddle</object>
     <object>objects\ball</object>
+    <object>objects\powerUp</object>
     <object>objects\blueGoal</object>
     <object>objects\redGoal</object>
     <object>objects\wall</object>

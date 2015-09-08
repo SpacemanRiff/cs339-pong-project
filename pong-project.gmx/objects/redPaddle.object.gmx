@@ -29,6 +29,7 @@
 moveDown = false
 
 moveSpeed = 4
+speedModifier = 1
 </string>
           </argument>
         </arguments>
@@ -56,6 +57,7 @@ if(y - moveSpeed &gt; 72){
     if(ball.y &lt; y){
         if(y - ball.y &lt; moveSpeed &amp;&amp; ball.y &gt; 72){
             y = ball.y
+            vspeed = 0
         }else{
             vspeed = -moveSpeed
         }
@@ -63,6 +65,7 @@ if(y - moveSpeed &gt; 72){
 }else{
     if(ball.y &lt; y){
         y = 72
+        vspeed = 0
     } 
 }
 
@@ -70,6 +73,7 @@ if(y + moveSpeed &lt; room_height - 72){
     if(ball.y &gt; y){
         if(ball.y-y &lt; moveSpeed &amp;&amp; ball.y &lt; room_height - 72){
             y = ball.y
+            vspeed = 0
         }else{
             vspeed = moveSpeed
         }
@@ -77,6 +81,7 @@ if(y + moveSpeed &lt; room_height - 72){
 }else{
     if(ball.y &gt; y){
         y = room_height - 72
+        vspeed = 0
     }
 }
 /*end AI code*/

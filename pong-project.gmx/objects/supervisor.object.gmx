@@ -49,41 +49,6 @@ redScore = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* blue paddle code */
-
-if(keyboard_check_pressed(ord('W'))){
-    bluePaddle.moveUp = true
-}
-if(keyboard_check_pressed(ord('S'))){
-    bluePaddle.moveDown = true
-}
-
-if(keyboard_check_released(ord('W'))){
-    bluePaddle.moveUp = false
-}
-if(keyboard_check_released(ord('S'))){
-    bluePaddle.moveDown = false
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/* red paddle code */
 if(keyboard_check_pressed(vk_up)){
     redPaddle.moveUp = true
@@ -122,20 +87,89 @@ if(keyboard_check_released(vk_down)){
 
 if(ball.x &gt; 1024 - 32){
     ball.hMoveSpeed = -ball.defaultMoveSpeed
-    ball.vMoveSpeed = ball.defaultMoveSpeed
+    ball.vMoveSpeed = (ball.defaultMoveSpeed + (irandom(3) - 2)) * power(-1, irandom(2))
     blueScore ++;
     audio_play_sound(blueScoreAudio,10,false)
     ball.x = 512
     ball.y = 256
+    ball.currentState = 0
+    powerUp.currentState = 0
 }
 
 if(ball.x &lt; 32){
     ball.hMoveSpeed = ball.defaultMoveSpeed
-    ball.vMoveSpeed = ball.defaultMoveSpeed
+    ball.vMoveSpeed = (ball.defaultMoveSpeed + (irandom(3) - 2)) * power(-1, irandom(2))
     redScore ++;
     audio_play_sound(redScoreAudio,10,false)
     ball.x = 512
     ball.y = 256
+    ball.currentState = 0
+    powerUp.currentState = 0
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/* game end code */
+if(blueScore &gt;= 5){
+    show_message("Blue wins!")
+    game_end()
+}
+if(redScore &gt;= 5){
+    show_message("Red win!")
+    game_end()
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/* blue paddle code */
+
+if(keyboard_check_pressed(ord('W'))){
+    bluePaddle.moveUp = true
+}
+if(keyboard_check_pressed(ord('S'))){
+    bluePaddle.moveDown = true
+}
+
+if(keyboard_check_released(ord('W'))){
+    bluePaddle.moveUp = false
+}
+if(keyboard_check_released(ord('S'))){
+    bluePaddle.moveDown = false
 }
 </string>
           </argument>

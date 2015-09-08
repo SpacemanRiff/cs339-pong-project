@@ -25,11 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>defaultMoveSpeed = 5
+            <string>defaultMoveSpeed = 4
+maxMoveSpeed = 10
+currentState = 0
 
-moveSpeedMod = 2
+moveSpeedMod = 1
 hMoveSpeed = -defaultMoveSpeed
-vMoveSpeed = defaultMoveSpeed
+vMoveSpeed = (defaultMoveSpeed + (irandom(3) - 2)) * power(-1, irandom(2))
 </string>
           </argument>
         </arguments>
@@ -54,6 +56,34 @@ vMoveSpeed = defaultMoveSpeed
             <kind>1</kind>
             <string>vspeed = vMoveSpeed
 hspeed = hMoveSpeed
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/* sprite control code */
+if(currentState == 1){
+    sprite_index = blueBallSprite
+}else if(currentState == 2){
+    sprite_index = redBallSprite 
+}else{
+    sprite_index = neutralBallSprite 
+}
 </string>
           </argument>
         </arguments>
@@ -100,12 +130,20 @@ vMoveSpeed = -vMoveSpeed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hMoveSpeed += moveSpeedMod
-vMoveSpeed += moveSpeedMod
+            <string>if(hMoveSpeed &lt; maxMoveSpeed){
+    hMoveSpeed += moveSpeedMod
+}
+if(vMoveSpeed &gt; maxMoveSpeed &amp;&amp; vMoveSpeed &lt; maxMoveSpeed){
+    if(vMoveSpeed &lt; 0){
+        vMoveSpeed -= moveSpeedMod
+    }else{
+        vMoveSpeed += moveSpeedMod
+    }
+}
 hMoveSpeed = -hMoveSpeed
 
 audio_play_sound(redHitAudio,10,false)
-sprite_index = redBallSprite
+currentState = 2
 </string>
           </argument>
         </arguments>
@@ -128,12 +166,20 @@ sprite_index = redBallSprite
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hMoveSpeed -= moveSpeedMod
-vMoveSpeed -= moveSpeedMod
+            <string>if(hMoveSpeed &gt; -maxMoveSpeed){
+    hMoveSpeed -= moveSpeedMod
+}
+if(vMoveSpeed &gt; -maxMoveSpeed &amp;&amp; vMoveSpeed &lt; maxMoveSpeed){
+    if(vMoveSpeed &lt; 0){
+        vMoveSpeed -= moveSpeedMod
+    }else{
+        vMoveSpeed += moveSpeedMod
+    }
+}
 hMoveSpeed = -hMoveSpeed
 
 audio_play_sound(blueHitAudio,10,false)
-sprite_index = blueBallSprite
+currentState = 1
 </string>
           </argument>
         </arguments>
