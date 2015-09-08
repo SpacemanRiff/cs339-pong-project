@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeedMod = 2
-hMoveSpeed = -5
-vMoveSpeed = 5
+            <string>defaultMoveSpeed = 5
+
+moveSpeedMod = 2
+hMoveSpeed = -defaultMoveSpeed
+vMoveSpeed = defaultMoveSpeed
 </string>
           </argument>
         </arguments>
